@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Register Page</title>
+<!--css-->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link href="css/login.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.banner-background {
+	clip-path: polygon(30% 0%, 70% 0%, 100% 0, 100% 91%, 63% 100%, 22% 91%, 0 99%, 0 0);
+}
+</style>
+
+<link rel="stylesheet" href="css/styles.css" type="text/css">
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark primary-background">
+		<a class="navbar-brand"> <span class="fa fa-asterisk"></span> Exam
+			Registration Portal
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<!--             <li class="nav-item dropdown"> -->
+				<!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="	fa fa-check-square-o"></span> Categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Programming Language</a>
+                    <a class="dropdown-item" href="#">Project Implementation</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Data Structure</a>
+                </div>
+            </li> -->
+
+				<!--             <li class="nav-item">
+                <a class="nav-link" href="#"> <span class="	fa fa-address-card-o"></span> Contact</a>
+            </li>
+ -->
+				<li class="nav-item"><a class="nav-link" href="login.jsp">
+						<span class="fa fa-user-circle "></span> Login
+				</a></li>
+			</ul>
+			<!--         <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+ -->
+		</div>
+	</nav>
+
+
+
+	<!--   Multiple page form filling best video:  https://www.youtube.com/watch?v=cKTgIDkRsGc -->
+
+
+	<section>
+		<div class="container">
+
+			<form method="post" name ="myForm" id="signup_form" onsubmit="return validateForm()">
+
+				<div class="form-group" id="name_field">
+					<label for="dob">Name</label> <input type="text" id="firstName"
+						name="name"><b><span class="formerror"></span></b>
+				</div>
+
+				<div class="form-group" id="date_field">
+					<label for="dob">Date of birth</label> <input type="date" id="dob"
+						name="birthDate"><b><span class="formerror"></span></b>
+				</div>
+
+				<div class="form-group" id="gender_field">
+					<label for="gender">Gender</label> <select name="gender"
+						id="gender">
+						<option value="M">Male</option>
+						<option value="F">Female</option>
+						<option value="NB">Others</option>
+					</select>
+				</div>
+				<div class="form-group" id="pincode_field">
+					<label for="postCode">Pin Code</label> <input required type="text"
+						id="postCode" name="pinCode"><b><span class="formerror"></span></b>
+				</div>
+
+				<div class="form-group" id="idType_field">
+					<label for="identity_type">Identity Type</label> <select
+						name="identityType" id="identity_type">
+						<option value="AADHAR">Aadhar</option>
+						<option value="PAN">PAN</option>
+					</select>
+				</div>
+
+				<div class="form-group" id="idNum_field">
+					<label for="identity_num">Identification number</label> <input
+						required type="text" id="identity_num" name="identityNumber"><b><span class="formerror"></span></b>
+				</div>
+
+
+				<div class="form-group" id="email_field">
+					<label for="email">Email</label> <input type="email" id="email"
+						name="emailId"><b><span class="formerror"></span></b>
+				</div>
+				<div class="form-group" id="mobile_field">
+					<label for="phone">Mobile Number</label> <input type="phone"
+						id="phone" name="mobileNumber"><b><span class="formerror"></span></b>
+				</div>
+				<div class="form-group" id="rollnum_field">
+					<label for="rollnum">12th Board Exam roll number</label> <input
+						type="text" id="rollnum" name="twelfthExamRollNum"><b><span class="formerror"></span></b>
+				</div>
+				<div class="form-group" id="examType_field">
+					<label for="papertype">Exam paper type</label><select
+						name="examPaperType" id="papertype">
+						<option value="paper1">Paper 1 (for B.tech/B.E)</option>
+						<option value="paper2">Paper 2 (for B.Arch)</option>
+					</select>
+				</div>
+				<div class="form-group" id="examLang_field">
+					<label for="examlang">Exam Language</label> <select
+						name="examLanguage" id="examlang">
+						<option value="English">English</option>
+						<option value="Hindi">Hindi</option>
+					</select>
+				</div>
+				<button type="submit" class="submit-btn">Submit</button>
+			</form>
+		</div>
+	</section>
+<script src="js/index.js" ></script>
+<script src="js/validation.js"></script>
+</body>
+</html>

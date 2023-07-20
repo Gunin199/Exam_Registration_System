@@ -1,0 +1,42 @@
+server:
+  port : 9004
+
+jwt:
+  secret: secretkey123
+
+zuul:
+  routes:
+    signup-service:
+      path: /signup/**
+      serviceId: greeting-service
+    serviceB:
+      path: /tasks-api/**
+      serviceId: task-service
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+      - id: signup-service
+        uri: lb://SIGNUP-SERVICE
+        predicates:
+          - Path=/signup/**
+      - id: approval-service
+        uri: lb://APPROVAL-SERVICE
+        predicates:
+          - Path=/approval/**
+      - id: admin-service
+        uri: lb://ADMIN-INDEX
+        predicates:
+            - Path=/admin/**
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone : http://localhost:8761/eureka/
+  instance:
+    hostname : localhost
